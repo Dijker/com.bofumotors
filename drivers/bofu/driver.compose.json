@@ -2,8 +2,8 @@
   "$extends": "rf.blinds",
   "id": "bofu",
   "name": {
-    "en": "Bofu Remote",
-    "nl": "Bofu Afstandsbediening"
+    "en": "Bofu Blinds",
+    "nl": "Bofu Zonwering"
   },
   "icon": "{{driverAssetsPath}}/icon.svg",
   "images": {
