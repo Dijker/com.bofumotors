@@ -1,0 +1,13 @@
+{
+  "triggers": [],
+  "conditions": [],
+  "actions": [
+    {
+      "id": "my_bofu",
+      "title": {
+        "en": "To preferred position",
+        "nl": "Naar voorkeurspositie"
+      }
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "$extends": "rf.blinds",
+  "id": "bofu",
+  "name": {
+    "en": "Bofu Remote",
+    "nl": "Bofu Afstandsbediening"
+  },
+  "icon": "{{driverAssetsPath}}/icon.svg",
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "rf": {
+    "signal": "bofu"
+  },
+  "capabilities": [
+    "windowcoverings_state",
+    "windowcoverings_tilt_down",
+    "windowcoverings_tilt_up"
+  ],
+  "capabilitiesOptions": {
+    "windowcoverings_tilt_up": {
+      "title": {
+        "en": "Tilt up",
+        "nl": "Kantel omhoog"
+      }
+    },
+    "windowcoverings_tilt_down": {
+      "title": {
+        "en": "Tilt down",
+        "nl": "Kantel omlaag"
+      }
+    }
+  },
+  "mobile": {
+    "components": [
+      {
+        "id": "icon"
+      },
+      {
+        "id": "button",
+        "capabilities": [
+          "windowcoverings_tilt_up"
+        ],
+        "options": {
+          "icons": {
+            "windowcoverings_tilt_up": "{{driverAssetsPath}}/icons/windowcoverings_tilt_up.svg"
+          }
+        }
+      },
+      {
+        "id": "button",
+        "capabilities": [
+          "windowcoverings_tilt_down"
+        ],
+        "options": {
+          "icons": {
+            "windowcoverings_tilt_down": "{{driverAssetsPath}}/icons/windowcoverings_tilt_down.svg"
+          }
+        }
+      },
+      {
+        "id": "ternary",
+        "capabilities": [
+          "windowcoverings_state"
+        ]
+      }
+    ]
+  }
+}

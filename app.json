@@ -1,0 +1,210 @@
+{
+  "id": "com.bofumotor",
+  "version": "1.0.0",
+  "compatibility": ">=1.5.6",
+  "sdk": 2,
+  "name": {
+    "en": "Bofu"
+  },
+  "description": {
+    "en": "Adds support for the Bofu window covering motors.",
+    "nl": "Ondersteuning voor Bofu motoren voor raamdecoratie."
+  },
+  "category": [
+    "appliances"
+  ],
+  "permissions": [
+    "homey:wireless:433"
+  ],
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Matthew Waanders",
+    "email": "matthew@athom.nl"
+  },
+  "flow": {
+    "actions": [
+      {
+        "id": "my_bofu",
+        "title": {
+          "en": "To preferred position",
+          "nl": "Naar voorkeurspositie"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=bofu"
+          }
+        ]
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "class": "windowcoverings",
+      "capabilities": [
+        "windowcoverings_state",
+        "windowcoverings_tilt_down",
+        "windowcoverings_tilt_up"
+      ],
+      "pair": [
+        {
+          "id": "rf.imitate",
+          "options": {
+            "body": "rf.pair.imitate.body.blinds"
+          }
+        },
+        {
+          "id": "rf.test_blinds",
+          "navigation": {
+            "prev": "rf.imitate",
+            "next": "rf.done"
+          }
+        },
+        {
+          "id": "rf.done"
+        }
+      ],
+      "id": "bofu",
+      "name": {
+        "en": "Bofu Remote",
+        "nl": "Bofu Afstandsbediening"
+      },
+      "icon": "/drivers/bofu/assets/icon.svg",
+      "images": {
+        "large": "/drivers/bofu/assets/images/large.png",
+        "small": "/drivers/bofu/assets/images/small.png"
+      },
+      "rf": {
+        "signal": "bofu"
+      },
+      "capabilitiesOptions": {
+        "windowcoverings_tilt_up": {
+          "title": {
+            "en": "Tilt up",
+            "nl": "Kantel omhoog"
+          }
+        },
+        "windowcoverings_tilt_down": {
+          "title": {
+            "en": "Tilt down",
+            "nl": "Kantel omlaag"
+          }
+        }
+      },
+      "mobile": {
+        "components": [
+          {
+            "id": "icon"
+          },
+          {
+            "id": "button",
+            "capabilities": [
+              "windowcoverings_tilt_up"
+            ],
+            "options": {
+              "icons": {
+                "windowcoverings_tilt_up": "/drivers/bofu/assets/icons/windowcoverings_tilt_up.svg"
+              }
+            }
+          },
+          {
+            "id": "button",
+            "capabilities": [
+              "windowcoverings_tilt_down"
+            ],
+            "options": {
+              "icons": {
+                "windowcoverings_tilt_down": "/drivers/bofu/assets/icons/windowcoverings_tilt_down.svg"
+              }
+            }
+          },
+          {
+            "id": "ternary",
+            "capabilities": [
+              "windowcoverings_state"
+            ]
+          }
+        ]
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "General settings",
+            "nl": "Alegemene instellingen"
+          },
+          "children": [
+            {
+              "id": "invert_tilt",
+              "type": "checkbox",
+              "value": false,
+              "label": {
+                "en": "Invert tilt up/down direction",
+                "nl": "Inverteer tilt omhoog/omlaag richting"
+              }
+            },
+            {
+              "id": "rotated",
+              "type": "radio",
+              "value": "0",
+              "label": {
+                "en": "Invert up/down signal",
+                "nl": "Inverteer omhoog/omlaag signaal"
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "No",
+                    "nl": "Nee"
+                  }
+                },
+                {
+                  "id": "180",
+                  "label": {
+                    "en": "Yes",
+                    "nl": "Ja"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "signals": {
+    "433": {
+      "bofu": {
+        "sof": [
+          4900,
+          2450,
+          1650,
+          309
+        ],
+        "eof": [
+          670
+        ],
+        "words": [
+          [
+            360,
+            633
+          ],
+          [
+            670,
+            320
+          ]
+        ],
+        "interval": 40,
+        "repetitions": 6,
+        "sensitivity": 0.3,
+        "minimalLength": 40,
+        "maximalLength": 40
+      }
+    }
+  }
+}
