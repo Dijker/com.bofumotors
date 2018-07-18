@@ -70,13 +70,13 @@
       ],
       "id": "bofu",
       "name": {
-        "en": "Bofu Remote",
-        "nl": "Bofu Afstandsbediening"
+        "en": "Bofu Blinds",
+        "nl": "Bofu Zonwering"
       },
       "icon": "/drivers/bofu/assets/icon.svg",
       "images": {
-        "large": "/drivers/bofu/assets/images/large.png",
-        "small": "/drivers/bofu/assets/images/small.png"
+        "large": "/drivers/bofu/assets/images/large.jpg",
+        "small": "/drivers/bofu/assets/images/small.jpg"
       },
       "rf": {
         "signal": "bofu"
