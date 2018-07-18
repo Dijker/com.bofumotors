@@ -1,0 +1,45 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "General settings",
+      "nl": "Alegemene instellingen"
+    },
+    "children": [
+      {
+        "id": "invert_tilt",
+        "type": "checkbox",
+        "value": false,
+        "label": {
+          "en": "Invert tilt up/down direction",
+          "nl": "Inverteer tilt omhoog/omlaag richting"
+        }
+      },
+      {
+        "id": "rotated",
+        "type": "radio",
+        "value": "0",
+        "label": {
+          "en": "Invert up/down signal",
+          "nl": "Inverteer omhoog/omlaag signaal"
+        },
+        "values": [
+          {
+            "id": "0",
+            "label": {
+              "en": "No",
+              "nl": "Nee"
+            }
+          },
+          {
+            "id": "180",
+            "label": {
+              "en": "Yes",
+              "nl": "Ja"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
