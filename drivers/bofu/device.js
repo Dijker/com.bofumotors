@@ -54,7 +54,7 @@ module.exports = RFDevice => class BofuDevice extends RFDevice {
         if (!deviceObject) return deviceObject;
 
         deviceObject.name = Homey.__('device.name');
-        deviceObject.icon = '/app/com.bofumotor/drivers/bofu/assets/icons/covering_icon.svg';
+        deviceObject.icon = `/app/${Homey.manifest.id}/drivers/${this.driver.id}/assets/icons/covering_icon.svg`;
         return deviceObject;
     }
 
